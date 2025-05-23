@@ -123,9 +123,8 @@ def build_application():
             sys.exit(1)
         shutil.move('dist/ClipboardManager.app', 'build/')
     elif system == 'windows':
-        if not os.path.exists('dist/ClipboardManager'):
-            print("Error: dist/ClipboardManager not found")
-            sys.exit(1)
+        if os.path.exists('build/ClipboardManager'):
+            shutil.rmtree('build/ClipboardManager')
         shutil.move('dist/ClipboardManager', 'build/')
         # Create Windows installer and portable package
         try:
